@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EPN Dashboard - EVC</title>
+  <link rel="stylesheet" href="navbar.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      background: #121212;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    main {
+      padding: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+    }
+
+    .dashboard-cards {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      flex: 1;
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      min-width: 200px;
+    }
+
+    .card h2 {
+      margin: 0;
+      font-size: 16px;
+      color: #ccc;
+    }
+
+    .card .value {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .card button {
+      background-color: #00ff99;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      color: black;
+      font-weight: bold;
+    }
+
+    .analytics-section {
+      margin: 50px 0;
+    }
+
+    .analytics-section h2 {
+      margin-bottom: 20px;
+    }
+
+    .analytics-panels {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .panel {
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .panel h3 {
+      margin-top: 0;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .panel img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    .video-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    .video-table th, .video-table td {
+      padding: 12px;
+      border-bottom: 1px solid #444;
+      text-align: left;
+    }
+
+    .video-table th {
+      background-color: #1e1e1e;
+    }
+
+    .status-published {
+      color: #00ff99;
+      font-weight: bold;
+    }
+
+    .status-unpublished {
+      color: #ffc107;
+      font-weight: bold;
+    }
+
+    .action-btn {
+      margin-right: 8px;
+      padding: 6px 10px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .btn-edit {
+      background: #555;
+      color: white;
+    }
+
+    .btn-publish {
+      background: #00ff99;
+      color: black;
+    }
+
+    .btn-unpublish {
+      background: #ff4444;
+      color: white;
+    }
+
+    .btn-delete {
+      background: #cc0000;
+      color: white;
+    }
+
+    .upload-btn {
+      background: #00ff99;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="navbar"></div>
+
+  <main>
+    <h1>🎬 Welcome, Producer!</h1>
+
+    <div class="dashboard-cards">
+      <div class="card">
+        <h2><i class="fa-solid fa-eye"></i> Total Views</h2>
+        <div class="value">23,500</div>
+      </div>
+      <div class="card">
+        <h2><i class="fa-solid fa-wallet"></i> Account Balance</h2>
+        <div class="value">$1,200.00</div>
+        <button>Withdraw</button>
+      </div>
+      <div class="card">
+        <h2><i class="fa-solid fa-video"></i> Published Videos</h2>
+        <div class="value">2</div>
+      </div>
+      <div class="card">
+        <h2><i class="fa-solid fa-bolt"></i> Engagement Rate</h2>
+        <div class="value">17.4%</div>
+      </div>
+    </div>
+
+    <!-- Analytics Overview -->
+    <section class="analytics-section">
+      <h2>📊 Analytics Overview</h2>
+      <div class="analytics-panels">
+        <div class="panel">
+          <h3>Views Over Time</h3>
+          <img src="images/grapgh-dummy.png" alt="Views Graph"/>
+        </div>
+        <div class="panel">
+          <h3>Viewer Demographics</h3>
+          <ul>
+            <li>🇺🇸 USA – 48%</li>
+            <li>🇬🇧 UK – 22%</li>
+            <li>🇮🇳 India – 16%</li>
+            <li>🌍 Others – 14%</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Engagement</h3>
+          <p>Avg. Watch Time: 2m 45s</p>
+          <p>Likes: 1,850 | Shares: 320</p>
+        </div>
+      </div>
+    </section>
+
+    <h2>🎞️ Your Uploaded Videos</h2>
+    <table class="video-table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Status</th>
+          <th>Views</th>
+          <th>Likes</th>
+          <th>Shares</th>
+          <th>Avg. Watch Time</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>City Nights</td>
+          <td class="status-published">Published</td>
+          <td>5,600</td>
+          <td>420</td>
+          <td>112</td>
+          <td>2m 10s</td>
+          <td>
+            <button class="action-btn btn-edit">Edit</button>
+            <button class="action-btn btn-unpublish">Unpublish</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Street Beats</td>
+          <td class="status-unpublished">Unpublished</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>
+            <button class="action-btn btn-publish">Publish</button>
+            <button class="action-btn btn-delete">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button class="upload-btn">+ Upload New Video</button>
+  </main>
+
+  <script src="navbar.js"></script>
+</body>
+</html>

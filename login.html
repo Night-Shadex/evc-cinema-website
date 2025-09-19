@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | EVC</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
+<body class="auth-body">
+
+  <div class="auth-container">
+    <div class="auth-box">
+      <div class="tab-switcher">
+        <button id="loginTab" class="active" onclick="showLogin()">Login</button>
+        <button id="signupTab" onclick="showSignup()">Sign Up</button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="loginForm" class="auth-form">
+  <h2>Welcome Back!</h2>
+  <input id="loginEmail" type="email" placeholder="Email" required />
+  <input id="loginPassword" type="password" placeholder="Password" required />
+  <button class="primary" type="submit">Login</button>
+      </form>
+      <div style="text-align: center; margin-top: 20px;">
+        <p style="color: #ccc;">Or log in with</p>
+      
+        <button class="social-btn google-btn">
+          <i class="fab fa-google"></i> Login with Google
+        </button>
+      
+        <button class="social-btn spotify-btn">
+          <i class="fab fa-spotify"></i> Login with Spotify
+        </button>
+      </div>
+
+      <!-- Sign-Up Form -->
+      <!-- Sign-Up Form (Updated) -->
+<form id="signupForm" class="auth-form hidden">
+  <h2>Create Your Account</h2>
+  <input id="signupUsername" type="text" placeholder="Username" required />
+  <input id="signupEmail" type="email" placeholder="Email" required />
+  <input id="signupPassword" type="password" placeholder="Password" required />
+  
+    <!-- Role Selector -->
+    <label style="margin-top: 10px;">Sign up as:</label>
+    <div class="role-selector">
+      <label><input type="radio" name="role" value="user" checked onclick="toggleProducerFields(false)"> User</label>
+      <label><input type="radio" name="role" value="producer" onclick="toggleProducerFields(true)"> Producer</label>
+    </div>
+  
+    <!-- Producer Extra Fields -->
+    <div id="producerFields" class="hidden">
+  <input id="studioName" type="text" placeholder="Studio Name" />
+  <input id="portfolioLink" type="url" placeholder="Portfolio Link" />
+    </div>
+  
+    <button class="primary" type="submit">Sign Up</button>
+  </form>
+  
+    </div>
+  </div>
+
+  <script>
+    const loginTab = document.getElementById('loginTab');
+    const signupTab = document.getElementById('signupTab');
+    const loginForm = document.getElementById('loginForm');
+    const signupForm = document.getElementById('signupForm');
+
+    function showLogin() {
+      loginTab.classList.add('active');
+      signupTab.classList.remove('active');
+      loginForm.classList.remove('hidden');
+      signupForm.classList.add('hidden');
+    }
+
+    function showSignup() {
+      signupTab.classList.add('active');
+      loginTab.classList.remove('active');
+      signupForm.classList.remove('hidden');
+      loginForm.classList.add('hidden');
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,348 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>eM Player - EVC</title>
+  <link rel="stylesheet" href="navbar.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      background: #121212;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    .video-section {
+      max-width: 900px;
+      margin: 0 auto 40px auto;
+    }
+
+    .video-section video {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .video-details {
+      margin-top: 20px;
+    }
+
+    .video-details h2 {
+      margin: 0;
+    }
+
+    .video-meta {
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    .video-actions {
+      margin-top: 10px;
+    }
+
+    .video-actions button {
+      margin-right: 10px;
+      padding: 8px 16px;
+      border-radius: 5px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    .watch-btn {
+      background: #00ff99;
+      color: black;
+    }
+
+    .playlist-btn {
+      background: #333;
+      color: white;
+    }
+
+    .gift-btn {
+      background: #ffc107;
+      color: black;
+    }
+
+    .gift-popup {
+      display: none;
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -30%);
+      background: #222;
+      padding: 20px;
+      border-radius: 10px;
+      z-index: 999;
+      width: 300px;
+    }
+
+    .gift-popup input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      border: none;
+    }
+
+    .gift-popup button {
+      padding: 8px 12px;
+      margin-right: 10px;
+    }
+
+    .recommendations {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .recommendations h3 {
+      margin-bottom: 20px;
+    }
+
+    .rec-grid {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .rec-card {
+      background: #222;
+      border-radius: 6px;
+      padding: 10px;
+      width: 150px;
+      text-align: center;
+    }
+
+    .rec-card img {
+      width: 100%;
+      border-radius: 5px;
+    }
+
+    .rec-card p {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    .comment-section {
+  margin-top: 50px;
+  background: #1e1e1e;
+  border-radius: 10px;
+  padding: 25px;
+}
+
+.comment-section h2 {
+  font-size: 22px;
+  color: #fff;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 10px;
+}
+
+.comment-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #2e2e2e;
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-bottom: 30px;
+}
+
+.comment-box input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ccc;
+  font-size: 15px;
+}
+
+.comment-thread {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.comment {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.reply {
+  margin-left: 60px;
+}
+
+.avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.comment-content {
+  flex: 1;
+}
+
+.username {
+  color: #00ff99;
+  font-weight: bold;
+}
+
+.timestamp {
+  font-size: 0.85rem;
+  color: #999;
+  margin-left: 10px;
+}
+
+.text {
+  margin: 8px 0;
+  color: #ddd;
+  line-height: 1.4;
+}
+
+.actions span {
+  color: #aaa;
+  font-size: 13px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar placeholder -->
+  <div id="navbar"></div>
+
+  <main>
+    <section class="video-section">
+      <video controls>
+        <source src="images/Deadpool.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      <div class="video-details">
+        <div class="video-metadata">
+          <h2>Deadpool | 2016 </h2>
+          <p><strong>Genre:</strong> Comedy, Action, <Sci-Fi></Sci-Fi></p>
+          <p><strong>Duration:</strong> 1h 47m</p>
+          <p><strong>Director:</strong> Tim Miller</p>
+          <p><strong>Cast:</strong> Ryan Reynolds, Morena Baccarin</p>
+          <p><strong>Description:</strong> Wade Wilson becomes Deadpool after an experiment goes wrong, leaving him with accelerated healing powers. He hunts down the man who nearly destroyed his life.</p>
+
+        <div class="rating">
+            <button>⭐</button>
+            <button>⭐</button>
+            <button>⭐</button>
+            <button>⭐</button>
+            <button>⭐</button>
+            <p>Rate this video</p>
+        </div>
+        <div class="video-actions">
+          <button class="watch-btn">⭐ 4.5 &nbsp; Watch Now</button>
+          <button class="playlist-btn">+ Playlist</button>
+          <button class="gift-btn" onclick="openGiftPopup()">🎁 Gift to a Friend</button>
+          <button class="playlist-btn" onclick="location.href='discovery.html'">🔍 Find Like This</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="recommendations">
+      <h3>You may also like</h3>
+      <div class="rec-grid">
+        <div class="rec-card">
+          <img src="images/darkknight.jpg" alt="Dark Knight">
+          <p>The Dark Knight Rises</p>
+        </div>
+        <div class="rec-card">
+          <img src="images/shawshank.jpg" alt="Shawshank">
+          <p>Shawshank Redemption</p>
+        </div>
+        <div class="rec-card">
+          <img src="images/rick.jpg" alt="Rick">
+          <p>Rick and Morty</p>
+        </div>
+        <div class="rec-card">
+          <img src="images/joker.jpg" alt="Joker">
+          <p>Joker (2019)</p>
+        </div>
+      </div>
+    </section>
+    <section class="comment-section">
+      <h2>🗨️ Comments</h2>
+    
+      <div class="comment-box">
+        <img src="images/avatar1.jpg" alt="User" class="avatar" />
+        <input type="text" placeholder="Leave a comment..." />
+      </div>
+    
+      <div class="comment-thread">
+        <div class="comment">
+          <img src="images/avatar2.jpg" alt="User" class="avatar" />
+          <div class="comment-content">
+            <p><span class="username">@Ajeeflixxess</span> <span class="timestamp">8 minutes ago</span></p>
+            <p class="text">I wish the VA was different from Beru</p>
+            <div class="actions">
+              <span>↩ Reply</span> · <span>💬 1</span> · <span>⋯ More</span>
+            </div>
+          </div>
+        </div>
+    
+        <div class="comment reply">
+          <img src="images/avatar3.jpg" alt="User" class="avatar" />
+          <div class="comment-content">
+            <p><span class="username">@IchigosBrother</span> <span class="timestamp">7 minutes ago</span></p>
+            <p class="text">I also wish my mom didn't change VA 😭</p>
+            <div class="actions">
+              <span>↩ Reply</span> · <span>💬 0</span> · <span>⋯ More</span>
+            </div>
+          </div>
+        </div>
+    
+        <div class="comment">
+          <img src="images/avatar4.jpg" alt="User" class="avatar" />
+          <div class="comment-content">
+            <p><span class="username">@Daniel</span> <span class="timestamp">1 hour ago</span></p>
+            <p class="text">Which show is Solo Leveling?</p>
+            <div class="actions">
+              <span>↩ Reply</span> · <span>💬 2</span> · <span>⋯ More</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Gift Popup -->
+  <div class="gift-popup" id="giftPopup">
+    <h4>Gift to a Friend</h4>
+    <input type="text" placeholder="@username" />
+    <button onclick="sendGift()">Send</button>
+    <button onclick="closeGiftPopup()">Cancel</button>
+  </div>
+
+  <script>
+    function openGiftPopup() {
+      document.getElementById('giftPopup').style.display = 'block';
+    }
+
+    function closeGiftPopup() {
+      document.getElementById('giftPopup').style.display = 'none';
+    }
+
+    function sendGift() {
+      alert('Gift sent!');
+      closeGiftPopup();
+    }
+  </script>
+
+  <!-- Navbar JS -->
+  <script src="navbar.js"></script>
+</body>
+</html>
