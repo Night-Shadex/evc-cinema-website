@@ -27,7 +27,7 @@ This repository contains a prototype for an Entertainment Video Content (EVC) pl
 ├── navbar.css         # Navigation bar styles
 ├── images/            # Images and video assets
 ```
-##Live Demo
+## Live Demo
 [EVC Cinema} https://night-shadex.github.io/evc-cinema-website/
 
 ## How to Run
